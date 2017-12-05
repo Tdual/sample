@@ -10,7 +10,11 @@ var y = d3.scale.linear()
 
 
 
-d3.csv("vec.csv", function(data) {
+d3.csv("fashion_vec.csv", function(data) {
+    
+  data = data.slice(0,1000);
+    
+    
   data.forEach(function(d) { 
        d.x = +d.x;
        d.y = +d.y;
@@ -54,7 +58,10 @@ d3.csv("vec.csv", function(data) {
       .attr('height', 20)
       .classed("dot", true)
       .attr("transform", transform)
-      .attr("xlink:href", function(d){ return "https://pbs.twimg.com/profile_images/765535129435373569/jaTQWoSq_bigger.jpg"; });
+      .attr("xlink:href", function(d){ 
+          var name = d.vocab.split("/")[2];
+          return "https://s3-ap-northeast-1.amazonaws.com/image-recommender/test/"+name; 
+      });
  
 
   function zoom() {
