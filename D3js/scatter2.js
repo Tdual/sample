@@ -10,7 +10,7 @@ var y = d3.scale.linear()
 
 
 
-d3.csv("fashion_vec2.csv", function(data) {
+d3.csv("fashion_vec_umap.csv", function(data) {
     
   data = data.slice(0,3000);
     
